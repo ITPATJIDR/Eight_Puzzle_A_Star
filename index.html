@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Eight</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+<body>
+	<section class="bg-[#262626] w-[100vw] h-[100vh]">
+		<div class="flex flex-col w-full h-full items-center justify-center text-white text-center relative">
+			<p id="text1" class="
+				absolute
+				top-[20vw]
+				text-[30px] 
+				font-bold
+				sm:text-xl 
+				md:text-[60px]
+			">HOW TO SOLVE</p> 
+			<p id="text2" class="
+				absolute
+				top-[25vw]
+				text-[30px] 
+				font-bold
+				sm:text-xl 
+				md:text-[60px]
+			">EIGHT PUZZLE PROBLEM</p> 
+			<p id="text3" class="
+				absolute
+				top-[30vw]
+				text-[30px] 
+				font-bold
+				sm:text-xl 
+				md:text-[60px]
+			">WITH A STAR SEARCH</p>
+		</div>
+	</section>
+	<section class="bg-[#F8FAFA] w-[100vw] h-[50vw]">
+		<div class="flex flex-col bg-yellow items-center justify-center p-20">
+			<div class="font-bold text-[40px]">
+				<p>WHAT IS EIGHT PUZZLE</p>
+			</div>
+
+			<div class="flex w-full h-[30vh] items-center justify-between mt-[10vw] pl-10 pr-10"> 
+				<div class="w-[30vw] text-center font-bold text-[20px] bg-[#F5F4F4] rounded-2xl flex items-center text-[#3C3737] p-10">
+					8 puzzle คือเกม ๆ หนึ่งที่จะมีแป้นตัวเลขอยู่ 8 ตัว และ ช่องว่างหนึ่งช่อง ซึ่งในสมัยเด็ก ๆ หลายคนอาจจะเคยมีของเล่นฝึกสมองในลักษณะนี้ คือเกมเรียงตัวเลข นั้นเอง แต่อาจจะเป็นลักษณะ 15 ตัวเลข
+				</div>
+				<div>
+					<img src="https://miro.medium.com/v2/resize:fit:422/0*N8RwrqlPmh7omxNi.png" alt="8puzzle"/>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="bg-[#F8FAFA] w-[100vw] h-[30vh] p-20">
+		<div class="text-center bg-[#F5F4F4] rounded-2xl p-10 font-bold text-[20px]">
+			<div>
+				Explain Algorithm
+			</div>
+			<div class="mt-2">
+				ซึ่งเป้าหมายของเกมนี้คือการ สลับตำแหน่งของเลขต่าง ๆ ให้เรียงอยู่ในรูปแบบที่เราต้องการ หรือถ้าให้มองในมุมของคอมพิวเตอร์ อาจจะเป็นการ เลื่อนตำแหน่งว่าง จนกว่าเลขทั้งหมดจะเรียงอยู่ในรูปแบบที่เราต้องการ
+			</div>
+		</div>
+	</section>
+	<section class="bg-[#262626] w-[100vw] h-[310vh]">
+		<div class="flex flex-col items-center justify-center w-full text-white p-10">
+			<div class="font-bold text-[40px]">
+				Case Study
+			</div>
+			<div> 
+				<img class="w-[100vw] h-[50vh] mt-10 rounded-2xl" src="./imgs/Astar.jpg"/>
+			</div>
+			<div class="mt-10">
+				<div class="font-bold text-[20px]">
+					ในการจะ ใช้ A star ในการเเก้ ปัญหา 8 Puzzle นั้นจะต้อง รู้ สูตร ก่อน นั้นก็คือ <br/>
+					<br/>
+					f(n) = g(n) + h(n) <br/>
+					<br/>
+					โดยที่ g(n) คือ ความสูง ของต้นไม้ <br/>
+					<br/>
+					เเละ h(n) คือ จำนวนตัวเลขที่อยุ่ ตำเเหน่งผิด <br/>
+				</div>
+			</div>
+			<div> 
+				<img class="w-[60vw] h-[30vh] mt-10 rounded-2xl" src="./imgs/Astar1.jpg"/>
+			</div>
+			<div class="mt-10">
+				<div class="font-bold text-[20px]">
+					ยกตัวอย่างเช่น ภาพด้านบน <br/>
+					<br/>
+					เราอยากให้ initial state เท่ากับ final state <br/>
+					<br/>
+					โดยที่ g = 0 จะเท่ากับ 0 เพราะว่า ความสูงของต้นไม้ เท่ากับ 0 <br/>
+					<br/>
+					เเละ h = 4 จะเท่ากับ 4 เพราะว่า มีตัวเลขที่อยุ่ ผิดตำเเหน่ง 4 ตัว <br/>
+					<br/>
+					ทำให้ f = 0 + 4 = 4 นั้นเอง
+				</div>
+			</div>
+			<div> 
+				<img class="w-[60vw] h-[30vh] mt-10 rounded-2xl" src="./imgs/Astar2.jpg"/>
+			</div>
+			<div class="mt-10">
+				<div class="font-bold text-[20px]">
+					เเละขั้นตอนต่อไป คือการ หา next move <br/>
+					<br/>
+					โดย การ move จะทำได้ ก็ต่อเมือตัวเลขนั้น อยุ่ใกล้กับ ช่อง ว่างเท่านั้น <br/>
+					<br/>
+					Move 1 :  คือการย้าย 7 มา ทาง ซ้าย f = 6 <br/>
+					<br/>
+					Move 2 :  คือการย้าย 6 มา ลง ข้างล่าง f = 4 <br/>
+					<br/>
+					Move 3 :  คือการย้าย 5 มา ทาง ขวา f = 6 <br/>
+					<br/>
+					เราก็จะได้ Move ที่ดีที่สุด นั้นก็คือ Move ที่ 2 เพราะว่า f = 4 ซึ่งน้อยที่สุด <br/>
+					<br/>
+				</div>
+			</div>
+			<div> 
+				<img class="w-[60vw] h-[40vh] mt-10 rounded-2xl" src="./imgs/Astar3.jpg"/>
+			</div>
+			<div class="mt-10">
+				<div class="font-bold text-[20px]">
+					เเล้วก็ทำ ขึ้นตอน ดังกล่าวไปเรื่อยๆ จน ไปถึง final state <br/>
+					<br/>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="bg-[#F8FAFA] w-[100vw] p-10">
+		<div class="flex flex-col items-center justify-center">
+			<div class="font-bold text-[40px]">
+				Case Study
+			</div>
+		</div>
+			<pre>
+				<code class="python">
+				import random
+				import copy
+				
+				def win(puzzle, goal):
+					return goal == puzzle
+				
+				def find(puzzle,t):
+					for i in range(len(puzzle)):
+						for j in range(len(puzzle[i])):
+							if t == puzzle[i][j]:
+							return i,j
+				
+				def fScore(init, puzzle,goal):
+					count = 0
+					for i in range(len(puzzle)):
+						for j in range(len(puzzle[i])):
+							if puzzle[i][j] == 0:
+								continue
+							if puzzle[i][j] != init[i][j]:
+								count += 1  
+							k,l = find(goal,puzzle[i][j])
+							count += abs(k-i) + abs(l-j)
+					return count 
+				
+				def genOp(puzzle):
+					ops = []
+					i,j = find(puzzle,0)
+					for p in [(-1,0),(+1,0),(0,-1),(0,+1)]:
+						if not ((i+p[0] > 2) or (i+p[0] < 0) or (j+p[1] > 2) or (j+p[1] < 0)):
+						ops.append([i+p[0],j+p[1]])
+					return ops
+				
+				def swap0(puzzles,pos):
+					puzzle = copy.deepcopy(puzzles)
+					i,j = find(puzzle,0)
+					puzzle[i][j] = puzzle[pos[0]][pos[1]]
+					puzzle[pos[0]][pos[1]] = 0
+					return puzzle
+				
+				def shuffle(puzzle, times):
+					for i in range(times):
+						o = genOp(puzzle)
+						k = random.randint(0,len(o)-1)
+						puzzle = swap0(puzzle,o[k])
+					return puzzle
+				
+				def solve(puzzles, goal):
+					lastList = []
+					puzzle = copy.deepcopy(puzzles)
+					last = find(puzzle,0)
+					while not win(puzzle,goal):
+						ops = genOp(puzzle)
+						ops = [ops[i] for i in range(len(ops)) if list(ops[i]) != list(last)]
+						less = swap0(puzzle, ops[0])
+						for i,v in enumerate(ops):
+							if fScore(puzzles, swap0(puzzle, v),goal) < fScore(puzzles, less,goal):
+								less = swap0(puzzle, v)
+							last = find(puzzle,0)
+							puzzle = less
+							lastList.append(puzzle)
+					return lastList
+				
+				
+				
+				goal = [[1,2,3],
+					[8,0,4],
+					[7,6,5]]
+				
+				pb = shuffle(goal, 20)
+				print("Target-----")
+				for i in goal:
+					print(i)
+					print("-----------")
+					print("initial----")
+				for i in pb:
+					print(i)
+					print("-----------\n\n")
+				
+				lastList = solve(pb, goal)
+				
+				if lastList:  # Check if lastList is not empty before accessing its elements
+					for i in lastList[0]:
+						print(i)
+					for i in lastList[1:]:
+						print("    |")
+						print("    V")
+						for j in i:
+						print(j)
+				else:
+					print("No solution found.")
+			 
+				</code>
+			</pre>
+	</section>
+	<section class="bg-black w-[100vw]">
+		<div>
+			Explain Code
+		</div>
+	</section>
+	<section class="bg-black w-[100vw]">
+		<div>
+			Video Present Project
+		</div>
+	</section>
+	<section class="bg-black w-[100vw]">
+		<div>
+			Introduction youself
+		</div>
+	</section>
+</body>
+</html>
+
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const listOfText = ["#text1", "#text2", "#text3"]
+		gsap.from(listOfText, {
+			x: -700,
+			duration: 2,
+			rotation: 30
+		})
+		gsap.to(listOfText, {
+			x: 0,
+			duration: 2
+		})
+	});
+</script>
