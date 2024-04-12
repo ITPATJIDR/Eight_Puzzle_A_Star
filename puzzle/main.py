@@ -61,32 +61,27 @@ def solve(puzzles, goal):
     lastList.append(puzzle)
   return lastList
 
-  
 
 goal = [[1,2,3],
         [8,0,4],
         [7,6,5]]
 
-pb = shuffle(goal, 20)
+pb =  shuffle(goal,20)
 print("Target-----")
 for i in goal:
-    print(i)
+  print(i)
 print("-----------")
 print("initial----")
 for i in pb:
-    print(i)
+  print(i)
 print("-----------\n\n")
-
 lastList = solve(pb, goal)
 
-if lastList:  # Check if lastList is not empty before accessing its elements
-    for i in lastList[0]:
-        print(i)
-    for i in lastList[1:]:
-        print("    |")
-        print("    V")
-        for j in i:
-            print(j)
-else:
-    print("No solution found.")
+for i in lastList[0]:
+  print(i)
+for i in lastList[1:]:
+  print("    |")
+  print("    V")
+  for j in i:
+    print(j)
  
